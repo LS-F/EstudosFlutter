@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:playgroundflutter/main.dart';
 
 class TelaLogin extends StatelessWidget {
@@ -13,15 +14,28 @@ class TelaLogin extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.primary),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-                Container(
-                  width: 100,
-                  height: 240,
-                  decoration: const BoxDecoration(
-                    border:Border(
-                      )),
-                ),
+            SizedBox(
+              width: 250,
+              child: TextFormField(
+                autofocus: true,
+                decoration: const InputDecoration(
+                  border:OutlineInputBorder() ,
+                  labelText: "Nome:"),
+              ),
+            ),
+
+            // Container(
+            //   width: 400,
+            //   height: 240,
+            //   decoration: BoxDecoration(
+            //     border: Border.all(
+            //       color: Colors.black,
+            //       width: 3,
+            //     ),
+            //   ),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -34,6 +48,9 @@ class TelaLogin extends StatelessWidget {
                           builder: (context) => const PlayGround()),
                     );
                   },
+                ),
+                const SizedBox(
+                  width: 20,
                 ),
                 ElevatedButton(
                   child: const Text(' Próxima tela'),
