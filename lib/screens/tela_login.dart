@@ -1,9 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:playgroundflutter/main.dart';
+// import 'dart:convert' as convert;
+// import 'package:http/http.dart' as http;
 
-class TelaLogin extends StatelessWidget {
-  const TelaLogin({super.key});
+class ImageSize extends StatefulWidget {
+  const ImageSize({super.key});
+
+  @override
+  State<ImageSize> createState() => _ImageSizeState();
+}
+
+class _ImageSizeState extends State<ImageSize> {
+  var _altura = 100.0;
+  var _lagura = 100.0;
+
+  void incrementar(){
+    setState(() {
+       _altura+= 10;
+       _lagura+= 10;
+    });
+   
+  }
+
+  void decrementar(){
+    setState(() {
+          _altura-= 10;
+          _lagura-= 10;
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,31 +36,51 @@ class TelaLogin extends StatelessWidget {
       appBar: AppBar(
           title: const Text('Playground'),
           automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.primary),
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 250,
-              child: TextFormField(
-                autofocus: true,
-                decoration: const InputDecoration(
-                  border:OutlineInputBorder() ,
-                  labelText: "Nome:"),
-              ),
+            Container(
+              width: 300,
+              height: 250,
+              child: Center(
+                child:Image.asset('lib/assets/images/dog_nerd.png', 
+                  height:_altura , 
+                  width: _lagura ),
+              )
+              
+            ),
+            const SizedBox(
+                  height: 200,
+                ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    decrementar();
+                  },
+                    icon: const Icon(Icons.remove),
+                    label: const Text('Diminuir Imagem'),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    incrementar();
+                  },
+                    icon: const Icon(Icons.add),
+                    label: const Text('Aumentar Imagem'),
+                ),
+              ],
+            ),
+            
+            const SizedBox(
+                  height: 45,
             ),
 
-            // Container(
-            //   width: 400,
-            //   height: 240,
-            //   decoration: BoxDecoration(
-            //     border: Border.all(
-            //       color: Colors.black,
-            //       width: 3,
-            //     ),
-            //   ),
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -45,7 +90,7 @@ class TelaLogin extends StatelessWidget {
                     Navigator.pop(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const PlayGround()),
+                        builder: (context) => const PlayGround()),
                     );
                   },
                 ),
