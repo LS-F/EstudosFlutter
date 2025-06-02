@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playgroundflutter/main.dart';
+import 'package:playgroundflutter/screens/validador_cpf.dart';
 // import 'dart:convert' as convert;
 // import 'package:http/http.dart' as http;
 
@@ -34,7 +35,7 @@ class _ImageSizeState extends State<ImageSize> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Playground'),
+          title: const Text('Playground - Dimensão imagem'),
           automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).colorScheme.inversePrimary),
       body: Center(
@@ -52,7 +53,7 @@ class _ImageSizeState extends State<ImageSize> {
               
             ),
             const SizedBox(
-                  height: 200,
+                  height: 100,
                 ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +79,7 @@ class _ImageSizeState extends State<ImageSize> {
             ),
             
             const SizedBox(
-                  height: 45,
+              height: 45,
             ),
 
             Row(
@@ -100,7 +101,10 @@ class _ImageSizeState extends State<ImageSize> {
                 ElevatedButton(
                   child: const Text(' Próxima tela'),
                   onPressed: () {
-                    // Navigate to the second screen when tapped.
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ValidadorCpf()),
+                  );
                   },
                 ),
               ],

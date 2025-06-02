@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playgroundflutter/class/testes.dart';
-import 'package:playgroundflutter/screens/tela_login.dart';
+import 'package:playgroundflutter/screens/ImageSize.dart';
 
 void main() {
   runApp(const PlayGround());
@@ -18,7 +18,8 @@ class PlayGround extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Playground'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Playground - Mudando cores'),
     );
   }
 }
