@@ -215,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 80,
             ),
             SizedBox(
-              width: 100,
+              width: 150,
               height: 45,
               child: FloatingActionButton(
                 heroTag: null,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:playgroundflutter/alerts/AlertDialog1.dart';
+import 'package:playgroundflutter/screens/ImageSize.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:playgroundflutter/screens/todo_list.dart';
 
 class ValidadorCpf extends StatefulWidget {
   const ValidadorCpf({super.key});
@@ -93,8 +95,39 @@ class _ValidadorCpfState extends State<ValidadorCpf> {
                   onPressed: () {
                     validaCPF(_cpf.text);
                   } 
-                  ),
-            ]),
+              ),
+              SizedBox(
+                height: 90,
+              ),
+              Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  child: const Text('Retornar'),
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageSize()),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                ElevatedButton(
+                  child: const Text(' Próxima tela'),
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const todoList()),
+                  );
+                  },
+                ),
+              ],
+            ),
+            ],
+          ),
           ),
         ),
       ),
