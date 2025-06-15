@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:playgroundflutter/alerts/AlertDialog1.dart';
-import 'package:playgroundflutter/screens/ImageSize.dart';
+import 'package:playgroundflutter/model/AlertDialog1.dart';
+import 'package:playgroundflutter/widgets/ImageSize.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:playgroundflutter/screens/todo_list.dart';
+import 'package:playgroundflutter/widgets/todo_list.dart';
 
 class ValidadorCpf extends StatefulWidget {
   const ValidadorCpf({super.key});
@@ -75,20 +75,25 @@ class _ValidadorCpfState extends State<ValidadorCpf> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(6.0),
           child: Form(
           key: _formKey,
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              TextFormField(
+                Column(mainAxisAlignment: MainAxisAlignment.center, 
+                children: [
+                  SizedBox(
+                    width: 250,
+                    child:TextFormField(
                 controller: _cpf,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 inputFormatters: [cpfFormatter],
                 decoration: InputDecoration(
                 border: OutlineInputBorder(), labelText: "Digite o CPF"),
               ),
+               ),
+              
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               ElevatedButton(
                   child: const Text("Valida CPF"),

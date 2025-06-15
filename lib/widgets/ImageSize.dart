@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playgroundflutter/main.dart';
-import 'package:playgroundflutter/screens/validador_cpf.dart';
+import 'package:playgroundflutter/widgets/validador_cpf.dart';
 // import 'dart:convert' as convert;
 // import 'package:http/http.dart' as http;
 
@@ -15,20 +15,18 @@ class _ImageSizeState extends State<ImageSize> {
   var _altura = 100.0;
   var _lagura = 100.0;
 
-  void incrementar(){
+  void incrementar() {
     setState(() {
-       _altura+= 10;
-       _lagura+= 10;
+      _altura += 10;
+      _lagura += 10;
     });
-   
   }
 
-  void decrementar(){
+  void decrementar() {
     setState(() {
-          _altura-= 10;
-          _lagura-= 10;
+      _altura -= 10;
+      _lagura -= 10;
     });
-
   }
 
   @override
@@ -43,45 +41,47 @@ class _ImageSizeState extends State<ImageSize> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 300,
-              height: 250,
-              child: Center(
-                child:Image.asset('lib/assets/images/dog_nerd.png', 
-                  height:_altura , 
-                  width: _lagura ),
-              )
-              
-            ),
+                width: 300,
+                height: 250,
+                child: Center(
+                  child: Image.asset('lib/assets/images/dog_nerd.png',
+                      height: _altura, width: _lagura),
+                )),
             const SizedBox(
-                  height: 100,
-                ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    decrementar();
-                  },
-                    icon: const Icon(Icons.remove),
-                    label: const Text('Diminuir Imagem'),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                ElevatedButton.icon(
-                  onPressed: () {
-                    incrementar();
-                  },
-                    icon: const Icon(Icons.add),
-                    label: const Text('Aumentar Imagem'),
-                ),
-              ],
+              height: 100,
             ),
-            
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      decrementar();
+                    },
+                    icon: const Icon(Icons.remove),
+                    label: const Text(
+                      'Zoom'
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      incrementar();
+                    },
+                    icon: const Icon(Icons.add),
+                    label: const Text(
+                      'Zoom'
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(
               height: 45,
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -91,7 +91,7 @@ class _ImageSizeState extends State<ImageSize> {
                     Navigator.pop(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PlayGround()),
+                          builder: (context) => const PlayGround()),
                     );
                   },
                 ),
@@ -102,9 +102,10 @@ class _ImageSizeState extends State<ImageSize> {
                   child: const Text(' Próxima tela'),
                   onPressed: () {
                     Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ValidadorCpf()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ValidadorCpf()),
+                    );
                   },
                 ),
               ],

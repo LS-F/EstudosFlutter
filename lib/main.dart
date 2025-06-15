@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:playgroundflutter/class/testes.dart';
-import 'package:playgroundflutter/screens/ImageSize.dart';
+import 'package:playgroundflutter/model/testes.dart';
+import 'package:playgroundflutter/widgets/ImageSize.dart';
 
 void main() {
   runApp(const PlayGround());
@@ -52,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
+        child: Padding(padding: EdgeInsets.all(2.0),
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
@@ -231,6 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+    ),
     );
   }
 }
