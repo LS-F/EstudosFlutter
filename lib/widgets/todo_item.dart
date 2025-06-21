@@ -3,7 +3,9 @@ import 'package:playgroundflutter/model/todo_atividade.dart';
 
 class TodoItem extends StatelessWidget {
   final TodoAtividade atividades;
-  const TodoItem({super.key, required this.atividades});
+  final mudouStatusAtividade;
+  final deletaAtividade;
+  const TodoItem({super.key, required this.atividades, required this.mudouStatusAtividade, required this.deletaAtividade});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,8 @@ class TodoItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: (){
-          print('Apertou no icone');
+          mudouStatusAtividade(atividades);
+          // print('Apertou no icone');
         },
         shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
@@ -34,7 +37,7 @@ class TodoItem extends StatelessWidget {
             iconSize: 18,
             icon: Icon(Icons.delete),
             onPressed: (){
-              print('Apertou no botão');
+              deletaAtividade(atividades.id);
             },
           ),
         ),

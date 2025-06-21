@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Padding(padding: EdgeInsets.all(2.0),
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children:[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -213,6 +213,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const SizedBox(
+              height: 80,
+            ),
+            SizedBox(
+              width: 150,
+              height: 45,
+              child: FloatingActionButton(
+                heroTag: null,
+                child: const Text("Resetar cores"),
+                onPressed: () {
+                  setState(() {
+                    for (int i = 0; i <= (changeColor.length -1); i++) 
+                    changeColor[i] = Colors.red;
+                  });
+                },
+              ),
+            ),
+                  const SizedBox(
               height: 80,
             ),
             SizedBox(

@@ -15,11 +15,11 @@ class TodoAtividade {
   static List<TodoAtividade> todoList(){
 
     return[
-      TodoAtividade(id: '1', atividade: 'Chapeleta'),
-      TodoAtividade(id: '2', atividade: 'Jogar', concluido: true),
-      TodoAtividade(id: '3', atividade: 'Chapeleta'),
-      TodoAtividade(id: '4', atividade: 'poeira', concluido: true),
-      TodoAtividade(id: '5', atividade: 'Provider'),
+      TodoAtividade(id: '1', atividade: 'Atividade 1'),
+      TodoAtividade(id: '2', atividade: 'Atividade 2', concluido: true),
+      TodoAtividade(id: '3', atividade: 'Atividade 3'),
+      TodoAtividade(id: '4', atividade: 'Atividade 4', concluido: true),
+      TodoAtividade(id: '5', atividade: 'Atividade 5'),
     ];
 
   }
