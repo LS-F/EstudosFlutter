@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playgroundflutter/widgets/validador_cpf.dart';
 import 'package:playgroundflutter/widgets/todo_item.dart';
 import 'package:playgroundflutter/model/todo_atividade.dart';
+import 'package:playgroundflutter/widgets/theEnd.dart';
 
 class todoList extends StatefulWidget {
   const todoList({super.key});
@@ -128,7 +129,12 @@ class _todoListState extends State<todoList> {
                     ),
                     ElevatedButton(
                       child: Text("Próxima tela"),
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                            builder: (context) => const TheEnd()));
+                      },
                     )
                   ],
                 ),
