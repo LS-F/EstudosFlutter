@@ -11,16 +11,18 @@ class ApiPostLogin {
     try {
       http.Response response = await http.post(Uri.parse("${baseURL}&password=${password}&username=${userId}"),
        headers:<String, String> {
-        'Content-Type': 'application/json'},
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
+        },
       );
 
       if(response.statusCode != 201){
-       var json = jsonDecode(utf8.decode(response.bodyBytes));
+       var json = jsonDecode(utf8.decode(response.bodyBytes,allowMalformed:true));
         retorno["apiResponse"] = response.statusCode;
         retorno["message"] = json["message"];
         return retorno;
       }else{
-        var json = jsonDecode(utf8.decode(response.bodyBytes));
+        var json = jsonDecode(utf8.decode(response.bodyBytes,allowMalformed:true));
         retorno["apiResponse"] = response.statusCode;
         retorno["access_token"] = json['access_token'];
         return retorno;
