@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playgroundflutter/apis/api_post_login.dart';
+import 'package:playgroundflutter/screens/produto.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,9 +29,11 @@ class _HomePageState extends State<HomePage> {
     Map<String,dynamic> token = await api.fLogin(userId, password);
 
     if (token["apiResponse"] == 200 ||token["apiResponse"] == 201) {
-      print("Token recebido: $token");
-      // Aqui você pode navegar para outra tela
-      // Navigator.pushReplacement(...)
+      token['access_token'];
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Produto()),
+      );
     } 
     else if(token["apiResponse"] == 401) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -54,19 +57,81 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 200,
-                  child: TextFormField(
-                    controller: _userId,
-                    decoration: InputDecoration(labelText: "Usuário"),         
+                Container(
+                  width: 300,
+                  decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
+                  ) ,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0,2,5,0),
+                        child: Image.asset("lib/assets/images/login-de-usuario.png",
+                          height:25,
+                          width: 25,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 200,
+                        child: TextFormField(
+                          controller: _userId,   
+                          decoration: InputDecoration(
+                            labelText: "Usuário",
+                            border:InputBorder.none,
+                          ),     
+                        ),
+                      ),
+                      SizedBox(
+                        width: 40,
+                      )
+                    ],
                   ),
                 ),
                 SizedBox(
-                  width: 200,
-                  child: TextFormField(
-                    controller: _passWord,
-                    decoration: InputDecoration(labelText: "Senha"),  
-                    obscureText: true,       
+                  height: 15,
+                ),
+              
+                Container(
+                  width: 300,
+                  decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
+                  ) ,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0,2,5,0),
+                        child: Image.asset("lib/assets/images/senha.png",
+                          height:25 ,
+                          width: 25,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 200,
+                        child: TextFormField(
+                          controller: _passWord,
+                          decoration: InputDecoration(labelText: "Senha",
+                            border:InputBorder.none,
+                          ),  
+                          obscureText: true,       
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.remove_red_eye_sharp), 
+                        // icon: const Icon(Icons.remove_red_eye), 
+                        iconSize: 19,
+                        onPressed: (){
+                                        
+                        },
+                      )
+                  ],
                   ),
                 ),
                 SizedBox(
